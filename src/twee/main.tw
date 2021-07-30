@@ -1,5 +1,5 @@
 :: StoryTitle
-pokemon
+tem
 :: StoryData
 {
 	"ifid": "D674C58C-DEFA-4F70-B7A2-27742230C0FC",
@@ -8,10 +8,12 @@ pokemon
 	"start": "My Starting Passage"
 }
 :: My Starting Passage
-<<set $name to "魔女">>
+<<set $NAMEPLAYER to "魔女">>
 
-@@color:red; <<print $name>>@@
-
+@@color:red; <<print $NAMEPLAYER>>@@
+<<= setup.hello('Jane')>>
+<<= setup.chara.name>>
+$NAMEPLAYER 
 [[page2]]
 
 :: page2

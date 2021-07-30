@@ -51,11 +51,14 @@
   });
 
   // code/main.js
-  var chara = require_chara();
-  var tesy = require_test();
-  var csv = (init_test(), test_exports);
-  var \u4E2D\u6587 = chara;
-  console.log(\u4E2D\u6587);
-  console.log(tesy);
-  console.log(csv.default);
+  setup.chara = require_chara();
+  setup.tesy = require_test();
+  setup.csv = (init_test(), test_exports);
+  setup.hello = function(name) {
+    return "Hello " + name + ", how are you?";
+  };
+  console.log(setup);
+  console.log(window);
+  console.log($.NAMEPLAYER);
+  setTimeout(() => console.log(window), 5e3);
 })();

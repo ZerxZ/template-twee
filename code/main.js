@@ -1,8 +1,11 @@
-const chara = require("./chara.json");
-const tesy = require("./test.yaml");
-const csv = require("./test.csv");
-const 中文 = chara;
-
-console.log(中文);
-console.log(tesy);
-console.log(csv.default);
+setup.chara = require("./chara.json");
+setup.tesy = require("./test.yaml");
+setup.csv = require("./test.csv");
+// setup.中文 = chara;
+setup.hello = function (name) {
+  return "Hello " + name + ", how are you?";
+};
+console.log(setup);
+console.log(window);
+console.log($.NAMEPLAYER);
+setTimeout(() => console.log(window), 5000);
