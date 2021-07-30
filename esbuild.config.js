@@ -24,7 +24,7 @@ require("esbuild")
   .build({
     entryPoints: ["./code/main.js"],
     bundle: true,
-    outfile: "./src/js/main.js",
+    outdir: "./src/js/",
     watch: true,
     target: "chrome58,firefox57,safari11,edge16".split(","),
     plugins: [envPlugin, yamlPlugin(), dsvPlugin()],

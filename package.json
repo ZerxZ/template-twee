@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "mit",
   "scripts": {
-    "watchsrc": "tweego -o ./dist/index.html src -w",
+    "watchsrc": "watch.bat",
     "watchcode": "node esbuild.config.js",
-    "serve": "gulp webserver"
+    "serve": "gulp webserver",
+    "decompile": "decompile.bat"
   },
   "devDependencies": {
     "esbuild": "^0.12.17",
