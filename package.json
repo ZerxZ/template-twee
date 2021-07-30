@@ -14,9 +14,7 @@
     "esbuild-plugin-yaml": "^0.0.1",
     "gulp": "^4.0.2",
     "gulp-webserver": "^0.9.1",
-    "js-yaml": "^4.1.0",
-    "process": "^0.11.10",
-    "shelljs": "^0.8.4"
+    "js-yaml": "^4.1.0"
   },
   "dependencies": {}
 }
