@@ -1,0 +1,18 @@
+:: StoryTitle
+pokemon
+:: StoryData
+{
+	"ifid": "D674C58C-DEFA-4F70-B7A2-27742230C0FC",
+	"format": "SugarCube",
+	"format-version": "2.35.0",
+	"start": "My Starting Passage"
+}
+:: My Starting Passage
+<<set $name to "魔女">>
+
+@@color:red; <<print $name>>@@
+
+[[page2]]
+
+:: page2
+hello22
