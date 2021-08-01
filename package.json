@@ -7,15 +7,25 @@
     "watchsrc": "watch.bat",
     "watchcode": "node esbuild.config.js",
     "serve": "gulp webserver",
-    "decompile": "decompile.bat"
+    "decompile": "decompile.bat",
+    "watch-css": "postcss code/css/main.css -o src/css/style.css -w",
+    "build-css": "postcss code/css/main.css -o src/css/style.css"
   },
   "devDependencies": {
+    "autoprefixer": "^10.3.1",
     "esbuild": "^0.12.17",
     "esbuild-plugin-dsv": "^0.0.2",
     "esbuild-plugin-yaml": "^0.0.1",
     "gulp": "^4.0.2",
     "gulp-webserver": "^0.9.1",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "postcss-copy": "^7.1.0",
+    "postcss-import": "^14.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "alpinejs": "^3.2.2",
+    "tailwindcss": "^2.2.7"
+  }
 }

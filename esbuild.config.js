@@ -20,13 +20,22 @@ let envPlugin = {
   },
 };
 
+require("esbuild").build({
+  entryPoints: ["./code/main.js"],
+  bundle: true,
+  outdir: "./src/js/",
+  watch: true,
+  target: "chrome58,firefox57,safari11,edge16".split(","),
+  plugins: [envPlugin, yamlPlugin(), dsvPlugin()],
+});
+
 require("esbuild")
   .build({
-    entryPoints: ["./code/main.js"],
+    entryPoints: ["./code/alpine.js"],
     bundle: true,
     outdir: "./src/js/",
     watch: true,
-    target: "chrome58,firefox57,safari11,edge16".split(","),
+    target: "es2016",
     plugins: [envPlugin, yamlPlugin(), dsvPlugin()],
   })
   .catch(() => process.exit(1));
