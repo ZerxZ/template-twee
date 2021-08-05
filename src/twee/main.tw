@@ -10,28 +10,9 @@
 :: My Starting Passage
 <<set $NAMEPLAYER to "Moyou">>
 
- <<print $NAMEPLAYER>> <<= setup.hello($NAMEPLAYER)>> <<= Game.chara.name>>
+ <<print $NAMEPLAYER>> 
  [[page2]]
-<div x-data="dropdown()">
-    <button x-on:click="open" class="bg-red-600 rounded-xl p-8">Open</button>
-
-    <div x-show="isOpen()" x-on:click.away="close">
-      测试
-    </div>
-</div>
-
-<script>
-    function dropdown() {
-        return {
-            show: false,
-            open() { this.show = true },
-            close() { this.show = false },
-            isOpen() { return this.show === true },
-        }
-    }
-</script>
-
-
+12
 
 :: page2
 hello22
