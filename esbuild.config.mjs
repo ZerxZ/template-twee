@@ -5,7 +5,6 @@ import esbuildPluginTsc from "esbuild-plugin-tsc";
 import esbuildServe from "esbuild-serve";
 import babel from "esbuild-plugin-babel";
 import dts from "esbuild-plugin-d.ts";
-
 //---------------------
 
 import { globPlugin } from "esbuild-plugin-glob";
@@ -13,22 +12,29 @@ const ImportGlobPlugin = ImportGlob.default;
 const yamlPlugin = ymlPlugin.yamlPlugin;
 const dsvPlugin = dsv.dsvPlugin;
 const dtsPlugin = dts.dtsPlugin;
-
 //---------------------
-
 const options = {
-  entryPoints: ["Code/App.*s", "Code/module/*.*s", "Code/Mods/*.*s"],
+  entryPoints: ["Code/**/*.js", "Code/**/*.ts"],
+  charset: "utf8",
   bundle: true,
+  entryNames: "[dir]/[name]",
   outdir: "./modules",
+  outbase: "Code",
   // outfile: "test.js",
-  tsconfig: "tsconfig.json",
+  // tsconfig: "./Code/tsconfig.json",
   target: "chrome58,firefox57,safari11,edge16".split(","),
   plugins: [
     globPlugin(),
     ImportGlobPlugin(),
 
     yamlPlugin(),
-    dsvPlugin(),
+    dsvPlugin({
+      transform(data, extension) {
+        console.log(data);
+        return data;
+      },
+    }),
+
     // esbuildPluginTsc(),
 
     // dtsPlugin(),
@@ -41,6 +47,3 @@ esbuildServe(options, {
   root: "./dist",
   live: true,
 });
-// require("esbuild")
-//   .build({})
-//   .catch(() => process.exit(1));

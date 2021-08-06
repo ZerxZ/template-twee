@@ -8,14 +8,17 @@
     "watchsrc": "node Scripts/build.js -w",
     "watchcode": "node esbuild.config.mjs -w",
     "decompile": "node Scripts/decompile.js",
-    "watch-css": "postcss code/css/main.css -o src/css/style.css -w",
-    "build-css": "postcss code/css/main.css -o src/css/style.css"
+    "watch-css": "postcss Theme/main.css -o src/css/style.css -w",
+    "build-css": "postcss Theme/main.css -o src/css/style.css"
   },
   "devDependencies": {
     "@anatine/esbuild-decorators": "^0.2.12",
     "@babel/core": "^7.14.8",
+    "@types/node": "^16.4.13",
     "autoprefixer": "^10.3.1",
     "esbuild": "^0.12.17",
+    "esbuild-plugin-alias": "^0.1.2",
+    "esbuild-plugin-alias-path": "^0.2.3",
     "esbuild-plugin-babel": "^0.2.3",
     "esbuild-plugin-d.ts": "^1.0.6",
     "esbuild-plugin-dsv": "^0.0.2",

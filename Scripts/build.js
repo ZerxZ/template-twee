@@ -13,23 +13,10 @@ function getJS() {
     const isJSFile = path.extname(FilePath) === ".js";
 
     if (isJSFile) {
-      JS.push(`--module=${_resolve(path.relative(modulePath, FilePath))}`);
+      JS.push(`${_resolve(path.relative(modulePath, FilePath))}`);
     }
   });
   return JS;
-}
-
-const COMMANDS = [];
-const TWEEGO_PATH = _resolve("devTools/tweego/StoryFormats");
-const options = {
-  html: `-o ${_resolve("dist/index.html")}`,
-  Head: `--head ${_resolve("public/head.html")}`,
-  src: _resolve("src"),
-  isWatch: process.argv.includes("-w") ? "-w" : "",
-  ...getJS(),
-};
-for (const key in options) {
-  COMMANDS.push(options[key]);
 }
 
 const SYSTEM = {
@@ -51,9 +38,21 @@ const tweego = () => {
     }${SYSTEM.platform === "win32" ? ".exe" : ""}`
   );
 };
+const COMMANDS = [tweego()];
+const TWEEGO_PATH = _resolve("devTools/tweego/StoryFormats");
+const options = {
+  html: `-o ${_resolve("dist/index.html")}`,
+  Head: `--head ${_resolve("public/head.html")}`,
+  src: _resolve("src"),
+  isWatch: process.argv.includes("-w") ? "-w" : "",
+  modules: `--module=${_resolve("modules")}`,
+  // ...getJS(),
+};
+for (const key in options) {
+  COMMANDS.push(options[key]);
+}
 
-const string = tweego() + " " + COMMANDS.join(" ");
-console.log(string);
+const string = COMMANDS.join(" ");
 const result = spawn("cmd.exe", ["/c", string], {
   env: {
     TWEEGO_PATH,
