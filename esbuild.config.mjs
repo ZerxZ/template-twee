@@ -6,7 +6,7 @@ import esbuildServe from "esbuild-serve";
 import babel from "esbuild-plugin-babel";
 import dts from "esbuild-plugin-d.ts";
 //---------------------
-
+console.log("hello");
 import { globPlugin } from "esbuild-plugin-glob";
 const ImportGlobPlugin = ImportGlob.default;
 const yamlPlugin = ymlPlugin.yamlPlugin;
